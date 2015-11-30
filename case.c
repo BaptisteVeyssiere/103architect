@@ -6,7 +6,7 @@
 **
 ** Started on  Mon Nov 30 14:12:06 2015 Baptiste veyssiere
 <<<<<<< HEAD
-** Last update Mon Nov 30 16:39:34 2015 nathan scutari
+** Last update Mon Nov 30 17:07:21 2015 nathan scutari
 =======
 ** Last update Mon Nov 30 16:58:37 2015 Baptiste veyssiere
 >>>>>>> 0e0be9e27d650587c3d0e8b87a49e7f744c0bcb2
@@ -14,7 +14,7 @@
 
 #include <stdio.h>
 #include <math.h>
-#include "architect.h"
+#include "architech.h"
 
 double	acos(double);
 double	asin(double);
@@ -34,9 +34,6 @@ void	case_t(double x, double y, double Tx, double Ty, t_matrix *mat)
 
 void    case_h(double x, double y, double Tx, double Ty, t_matrix *mat)
 {
-<<<<<<< HEAD
-  printf("Homothety by the ratios %.3g and %.3g\n%.3f      0.000      0.000\n0.000      %.3f      0.000\n0.000      0.000      1.000\n(%.3g,%.3g) => (%.3g,%.3g)\n", Tx, Ty, Tx, Ty, x, y, Tx * x, Ty * y);
-=======
   printf("Homothety by the ratios %.3g and %.3g\n", Tx, Ty);
   mat->tab[0][0] = Tx;
   mat->tab[0][1] = 0.000;
@@ -46,7 +43,6 @@ void    case_h(double x, double y, double Tx, double Ty, t_matrix *mat)
   mat->tab[1][2] = 1.000;
   mat->x = Tx * x;
   mat->y = Ty * y;
->>>>>>> 0e0be9e27d650587c3d0e8b87a49e7f744c0bcb2
 }
 
 void    case_r(double x, double y, double A, double buffer, t_matrix *mat)
