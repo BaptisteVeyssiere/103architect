@@ -5,7 +5,7 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Mon Nov 30 14:12:06 2015 Baptiste veyssiere
-** Last update Mon Nov 30 16:03:37 2015 Baptiste veyssiere
+** Last update Mon Nov 30 16:33:41 2015 Baptiste veyssiere
 */
 
 #include <stdio.h>
@@ -16,12 +16,12 @@ double	asin(double);
 
 void	case_t(double x, double y, double Tx, double Ty)
 {
-  printf("Translation by the vector (%.3g, %.3g)\n1.000       0.000     %.3f\n0.000       1.000     %.3f\n0.000       0.000     1.000\n(%.3g,%.3g) => (%.3g,%.3g)\n", Tx, Ty, Tx, Ty, x, y, Tx + x, Ty + y);
+  printf("Translation by the vector (%.3g, %.3g)\n1.000       0.000     %.3f\n0.000      1.000     %.3f\n0.000      0.000     1.000\n(%.3g,%.3g) => (%.3g,%.3g)\n", Tx, Ty, Tx, Ty, x, y, Tx + x, Ty + y);
 }
 
 void    case_h(double x, double y, double Tx, double Ty)
 {
-  printf("Homothety by the ratios %.3g and %.3g\n%.3f    0.000      0.000\n0.000     %.3f      0.000\n0.000     0.000      1.000\n(%.3g,%.3g) => (%.3g,%.3g)\n", Tx, Ty, Tx, Ty, x, y, Tx * x, Ty * y);
+  printf("Homothety by the ratios %.3g and %.3g\n%.3f    0.000      0.000\n0.000    %.3f      0.000\n0.000    0.000      1.000\n(%.3g,%.3g) => (%.3g,%.3g)\n", Tx, Ty, Tx, Ty, x, y, Tx * x, Ty * y);
 }
 
 void    case_r(double x, double y, double A, double buffer)
