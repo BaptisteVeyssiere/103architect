@@ -5,7 +5,7 @@
 ## Login   <VEYSSI_B@epitech.net>
 ##
 ## Started on  Mon Nov 30 13:09:03 2015 Baptiste veyssiere
-## Last update Mon Nov 30 13:11:56 2015 Baptiste veyssiere
+## Last update Mon Nov 30 14:52:38 2015 Baptiste veyssiere
 ##
 
 NAME	= 103architect
@@ -16,7 +16,7 @@ OBJS	= $(SRCS:.c=.o)
 
 $(NAME):
 	cc -c $(SRCS)
-	cc -o $(NAME) $(OBJS)
+	cc -o $(NAME) $(OBJS) -lm
 
 all: $(NAME)
 
