@@ -5,7 +5,7 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Mon Nov 30 14:12:06 2015 Baptiste veyssiere
-** Last update Mon Nov 30 16:37:03 2015 Baptiste veyssiere
+** Last update Mon Nov 30 16:39:34 2015 nathan scutari
 */
 
 #include <stdio.h>
@@ -21,7 +21,7 @@ void	case_t(double x, double y, double Tx, double Ty)
 
 void    case_h(double x, double y, double Tx, double Ty)
 {
-  printf("Homothety by the ratios %.3g and %.3g\n%.3f    0.000      0.000\n0.000    %.3f      0.000\n0.000    0.000      1.000\n(%.3g,%.3g) => (%.3g,%.3g)\n", Tx, Ty, Tx, Ty, x, y, Tx * x, Ty * y);
+  printf("Homothety by the ratios %.3g and %.3g\n%.3f      0.000      0.000\n0.000      %.3f      0.000\n0.000      0.000      1.000\n(%.3g,%.3g) => (%.3g,%.3g)\n", Tx, Ty, Tx, Ty, x, y, Tx * x, Ty * y);
 }
 
 void    case_r(double x, double y, double A, double buffer)
@@ -56,9 +56,4 @@ void    case_s(double x, double y, double A, double buffer)
   if (d < 0.001)
     d = 0;
   printf("Symmetry about an axis inclined with an angle of %.3g degrees\n%.3f       %.3f     0.000\n%.3f       %.3f     0.000\n0.000       0.000     1.000\n(%.3g,%.3g) => (%.3g,%.3g)\n", A, a, b, c, d, x, y, (a * x + b * y), (c * x + d * y));
-}
-
-void	main()
-{
-  case_t(1, 2, 2, 1);
 }

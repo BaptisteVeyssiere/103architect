@@ -5,7 +5,7 @@
 ** Login   <scutar_n@epitech.net>
 **
 ** Started on  Mon Nov 30 14:12:19 2015 nathan scutari
-** Last update Mon Nov 30 16:30:44 2015 nathan scutari
+** Last update Mon Nov 30 17:02:32 2015 nathan scutari
 */
 
 #include <stdlib.h>
@@ -52,7 +52,7 @@ int		my_put_in_list(t_file **list, char *option, char *nbr1, char *nbr2, int i)
   if (elem->option == 'r' || elem->option == 's')
     {
       elem->nbr1 = atof(nbr1);
-      i -= 2;
+      i -= 3;
     }
   return (i);
 }
@@ -61,8 +61,9 @@ void		get_args_call_function(int ac, char **av)
   t_file	*list;
   int		i;
   int		j;
+  t_matrix	matrix;
   char		f_list[] = "thrs";
-  double	(*caseoid[])(double, double, double, double) =
+  double	(*caseoid[])(double, double, double, double, t_matrix*) =
     {
       case_t,
       case_h,
@@ -72,18 +73,28 @@ void		get_args_call_function(int ac, char **av)
     };
   i = ac - 1;
   list = NULL;
+  t_matrix.x = atof(av[1]);
+  t_matrix.y = atof(av[2]);
+  t_matrix.tab[0][0] = 0;
+  t_matrix.tab[0][1] = 0;
+  t_matrix.tab[0][2] = 0;
+  t_matrix.tab[1][0] = 0;
+  t_matrix.tab[1][1] = 0;
+  t_matrix.tab[1][2] = 0;
   while (av[i][0] != '-' || av[i][1] != 't' && av[i][1] != 'h' && av[i][1] != 'r' && av[i][1] != 's')
     i--;
   while (i > 2)
     {
       i = my_put_in_list(&list, av[i], av[i + 1], av[i + 2], i);
+      if (av[i][0] != '-' && (av[i][1] < '0' || av[i][1] > '9'))
+	i++;
     }
   while (list != NULL)
     {
       j = 0;
       while (list->option != f_list[j])
 	j++;
-      caseoid[j](atof(av[1]), atof(av[2]), list->nbr1, list->nbr2);
+      caseoid[j](atof(av[1]), atof(av[2]), list->nbr1, list->nbr2, &matrix);
       list = list->next;
     }
 }
