@@ -5,12 +5,13 @@
 ## Login   <VEYSSI_B@epitech.net>
 ##
 ## Started on  Mon Nov 30 13:09:03 2015 Baptiste veyssiere
-## Last update Mon Nov 30 14:52:38 2015 Baptiste veyssiere
+## Last update Mon Nov 30 17:29:08 2015 Baptiste veyssiere
 ##
 
 NAME	= 103architect
 
-SRCS	= 103architect.c
+SRCS	= case.c \
+	get_args_call_function.c
 
 OBJS	= $(SRCS:.c=.o)
 
