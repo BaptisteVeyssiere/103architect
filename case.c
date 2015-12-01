@@ -6,7 +6,7 @@
 **
 ** Started on  Mon Nov 30 14:12:06 2015 Baptiste veyssiere
 <<<<<<< HEAD
-** Last update Mon Nov 30 17:55:07 2015 Baptiste veyssiere
+** Last update Mon Nov 30 18:25:26 2015 Baptiste veyssiere
 =======
 ** Last update Mon Nov 30 16:58:37 2015 Baptiste veyssiere
 >>>>>>> 0e0be9e27d650587c3d0e8b87a49e7f744c0bcb2
@@ -52,13 +52,13 @@ void    case_r(double x, double y, double A, double buffer, t_matrix *mat)
   double	d = cos((M_PI * A) / 180);
 
   printf("%.3g %.3g\n", mat->x, mat->y);
-  if (a < 0.001)
+  if (a < 0.001 && a > 0.000)
     a = 0;
-  if (b < 0.001)
+  if (b < 0.001 && b > 0.000)
     b = 0;
-  if (c < 0.001)
+  if (c < 0.001 && c > 0.000)
     c = 0;
-  if (d < 0.001)
+  if (d < 0.001 && d > 0.000)
     d = 0;
   printf("Rotation at a %.3g degree angle\n", A);
   mat->tab[0][0] += a;
@@ -79,13 +79,13 @@ void    case_s(double x, double y, double A, double buffer, t_matrix *mat)
   double	d = -cos(2 * (M_PI * A) / 180);
 
   printf("%.3g %.3g\n", mat->x, mat->y);
-  if (a < 0.001)
+  if (a < 0.001 && a > 0.000)
     a = 0;
-  if (b < 0.001)
+  if (b < 0.001 && b > 0.000)
     b = 0;
-  if (c < 0.001)
+  if (c < 0.001 && c > 0.000)
     c = 0;
-  if (d < 0.001)
+  if (d < 0.001 && d > 0.000)
     d = 0;
   printf("Symmetry about an axis inclined with an angle of %.3g degrees\n", A);
   mat->tab[0][0] += a;
