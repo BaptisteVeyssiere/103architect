@@ -1,15 +1,11 @@
 /*
-** case_t.c for 103architect in /home/VEYSSI_B/rendu/103architect
+** case.c for 103architect in /home/scutar_n/rendu/103architect
 **
-** Made by Baptiste veyssiere
-** Login   <VEYSSI_B@epitech.net>
+** Made by nathan scutari
+** Login   <scutar_n@epitech.net>
 **
-** Started on  Mon Nov 30 14:12:06 2015 Baptiste veyssiere
-<<<<<<< HEAD
-** Last update Wed Dec  2 14:04:04 2015 Baptiste veyssiere
-=======
-** Last update Mon Nov 30 16:58:37 2015 Baptiste veyssiere
->>>>>>> 0e0be9e27d650587c3d0e8b87a49e7f744c0bcb2
+** Started on  Wed Dec  2 16:04:37 2015 nathan scutari
+** Last update Wed Dec  2 16:04:43 2015 nathan scutari
 */
 
 #include <stdio.h>

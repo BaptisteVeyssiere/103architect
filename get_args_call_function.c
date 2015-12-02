@@ -5,13 +5,65 @@
 ** Login   <scutar_n@epitech.net>
 **
 ** Started on  Mon Nov 30 14:12:19 2015 nathan scutari
-** Last update Mon Nov 30 17:22:38 2015 nathan scutari
+** Last update Wed Dec  2 15:59:47 2015 nathan scutari
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "architech.h"
 #include <math.h>
+
+void            reverse_list(t_file **list)
+{
+  t_file        *tmp;
+  t_file        *previous;
+  t_file        *save;
+  t_file        *list_b;
+
+  tmp = *list;
+  previous = NULL;
+  while (tmp != NULL)
+    {
+      save = tmp->next;
+      tmp->next = previous;
+      previous = tmp;
+      list_b = tmp;
+      tmp = save;
+    }
+  *list = list_b;
+}
+
+int	is_nbr(char	charact)
+{
+  if (charact < '0' || charact > '9')
+    return (0);
+  return (1);
+}
+
+void	verify_number(char *str)
+{
+  int	i;
+  int	j;
+  int	point;
+
+  point = 0;
+  i = 0;
+  j = 0;
+  while (str[i] != 0)
+    {
+      if (str[i] == '-' && i == 0)
+	i++;
+      if (is_nbr(str[i]) == 0 && str[i] != 46)
+	put_error("Syntax error\n", 84);
+      if (str[i] == 46 && point > 0)
+	put_error("Syntax error\n", 84);
+      if (str[i] == 46 && point == 0)
+	point = 1;
+      if (str[i] == 46 && is_nbr(str[i + 1]) == 0)
+	put_error("Syntax error\n", 84);
+      i++;
+    }
+}
 
 void	nbrcpy(char *st)
 {
@@ -21,11 +73,11 @@ void	nbrcpy(char *st)
   if (st[i] == '-')
     i++;
   if (st[i] == 0)
-    exit(84);
+    put_error("Error : option is not a number\n", -1);
   while (st[i] != 0)
     {
       if (st[i] < '0' || st[i] > '9')
-	exit(84);
+	put_error("Error : option is not a number\n", -1);
       i++;
     }
 }
@@ -44,6 +96,8 @@ int		my_put_in_list(t_file **list, char *option, char *nbr1, char *nbr2, int i)
     exit(84);
   if (elem->option == 't' || elem->option == 'h')
     {
+      verify_number(nbr1);
+      verify_number(nbr2);
       nbrcpy(nbr1);
       elem->nbr1 = atof(nbr1);
       nbrcpy(nbr2);
@@ -52,6 +106,7 @@ int		my_put_in_list(t_file **list, char *option, char *nbr1, char *nbr2, int i)
     }
   if (elem->option == 'r' || elem->option == 's')
     {
+      verify_number(nbr1);
       elem->nbr1 = atof(nbr1);
       i -= 3;
     }
@@ -72,25 +127,41 @@ void		get_args_call_function(int ac, char **av)
       case_s,
       0
     };
-  i = ac - 1;
+  i = 3;
   list = NULL;
+  if (ac < 5)
+    put_error("Error : invalid number of arguments\n", -1);
+  verify_number(av[1]);
+  verify_number(av[2]);
   matrix.x = atof(av[1]);
   matrix.y = atof(av[2]);
-  matrix.tab[0][0] = 0;
-  matrix.tab[0][1] = 0;
-  matrix.tab[0][2] = 0;
-  matrix.tab[1][0] = 0;
-  matrix.tab[1][1] = 0;
-  matrix.tab[1][2] = 0;
-  while (av[i][0] != '-' || av[i][1] != 't' && av[i][1] != 'h' && av[i][1] != 'r' && av[i][1] != 's')
-    i--;
-  while (i > 2)
+  matrix.tab[0][0] = 1;
+  matrix.tab[0][1] = 1;
+  matrix.tab[0][2] = 1;
+  matrix.tab[1][0] = 1;
+  matrix.tab[1][1] = 1;
+  matrix.tab[1][2] = 1;
+  while (i < ac)
     {
-      my_put_in_list(&list, av[i], av[i + 1], av[i + 2], i);
-      i--;
-      while (av[i][1] != 'r' && av[i][1] != 's' && av[i][1] != 't' && av[i][1] != 'h' && i > 0)
-	i--;
+      if (my_strlen(av[i]) == 2)
+	{
+	  if ((av[i][1] == 't' || av[i][1] == 'h') && ac >= i + 3)
+	    {
+	      my_put_in_list(&list, av[i], av[i + 1], av[i + 2], i);
+	      i += 3;
+	    }
+	  else if ((av[i][1] == 'r' || av[i][1] == 's') && ac >= i + 2)
+	    {
+	      my_put_in_list(&list, av[i], av[i + 1], av[i + 2], i);
+	      i += 2;
+	    }
+	  else
+	    put_error("Error : bad options\n", -1);
+	}
+      else
+	put_error("Error : bad options\n", -1);
     }
+  reverse_list(&list);
   while (list != NULL)
     {
       j = 0;
