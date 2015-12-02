@@ -5,7 +5,7 @@
 ** Login   <scutar_n@epitech.net>
 **
 ** Started on  Wed Dec  2 16:04:37 2015 nathan scutari
-** Last update Wed Dec  2 16:04:43 2015 nathan scutari
+** Last update Wed Dec  2 16:05:57 2015 Baptiste veyssiere
 */
 
 #include <stdio.h>
@@ -14,7 +14,6 @@
 
 void	case_t(double x, double y, double Tx, double Ty, t_matrix *mat)
 {
-  printf("%.3g %.3g\n", mat->x, mat->y);
   printf("Translation by the vector (%.3g, %.3g)\n", Tx, Ty);
   mat->tab[0][0] *= 1;
   mat->tab[0][1] *= 0;
@@ -28,7 +27,6 @@ void	case_t(double x, double y, double Tx, double Ty, t_matrix *mat)
 
 void    case_h(double x, double y, double Tx, double Ty, t_matrix *mat)
 {
-  printf("%.3g %.3g\n",mat->x, mat->y);
   printf("Homothety by the ratios %.3g and %.3g\n", Tx, Ty);
   mat->tab[0][0] *= Tx;
   mat->tab[0][1] *= 0.000;
@@ -47,7 +45,6 @@ void    case_r(double x, double y, double A, double buffer, t_matrix *mat)
   double	c = sin((M_PI * A) / 180);
   double	d = cos((M_PI * A) / 180);
 
-  printf("%.3g %.3g\n", mat->x, mat->y);
   if (a < 0.001 && a > 0.000)
     a = 0;
   if (b < 0.001 && b > 0.000)
@@ -74,7 +71,6 @@ void    case_s(double x, double y, double A, double buffer, t_matrix *mat)
   double	c = sin(2 * (M_PI * A) / 180);
   double	d = -cos(2 * (M_PI * A) / 180);
 
-  printf("%.3g %.3g\n", mat->x, mat->y);
   if (a < 0.001 && a > 0.000)
     a = 0;
   if (b < 0.001 && b > 0.000)
