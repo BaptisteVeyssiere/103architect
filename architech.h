@@ -5,7 +5,7 @@
 ** Login   <scutar_n@epitech.net>
 **
 ** Started on  Mon Nov 30 15:07:34 2015 nathan scutari
-** Last update Mon Nov 30 17:05:45 2015 nathan scutari
+** Last update Thu Dec  3 15:58:24 2015 Baptiste veyssiere
 */
 
 #ifndef ARCHITECT_H_
@@ -21,7 +21,7 @@ typedef struct s_file
 
 typedef struct s_matrix
 {
-  double	tab[2][3];
+  double	tab[3][3];
   double	x;
   double	y;
 } t_matrix;
