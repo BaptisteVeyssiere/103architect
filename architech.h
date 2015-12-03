@@ -5,7 +5,7 @@
 ** Login   <scutar_n@epitech.net>
 **
 ** Started on  Mon Nov 30 15:07:34 2015 nathan scutari
-** Last update Thu Dec  3 15:58:24 2015 Baptiste veyssiere
+** Last update Thu Dec  3 15:58:49 2015 Baptiste veyssiere
 */
 
 #ifndef ARCHITECT_H_
@@ -26,9 +26,9 @@ typedef struct s_matrix
   double	y;
 } t_matrix;
 
-void case_t(double, double, double, double, t_matrix*);
-void case_h(double, double, double, double, t_matrix*);
-void case_r(double, double, double, double, t_matrix*);
-void case_s(double, double, double, double, t_matrix*);
+void case_t(double, double, double, double, t_matrix*, int);
+void case_h(double, double, double, double, t_matrix*, int);
+void case_r(double, double, double, double, t_matrix*, int);
+void case_s(double, double, double, double, t_matrix*, int);
 
 #endif /* !ARCHITECT_H_ */
