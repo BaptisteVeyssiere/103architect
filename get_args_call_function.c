@@ -5,7 +5,7 @@
 ** Login   <scutar_n@epitech.net>
 **
 ** Started on  Mon Nov 30 14:12:19 2015 nathan scutari
-** Last update Mon Dec  7 14:18:52 2015 Baptiste veyssiere
+** Last update Wed Dec  9 23:31:58 2015 Baptiste veyssiere
 */
 
 #include <stdio.h>
@@ -136,13 +136,6 @@ void		get_args_call_function(int ac, char **av)
   verify_number(av[2]);
   matrix.x = atof(av[1]);
   matrix.y = atof(av[2]);
-  /*matrix.tab[0][0] = 1;
-  matrix.tab[0][1] = 1;
-  matrix.tab[0][2] = 1;
-  matrix.tab[1][0] = 1;
-  matrix.tab[1][1] = 1;
-  matrix.tab[1][2] = 1;
-  matrix.tab*/
   while (i < ac)
     {
       if (my_strlen(av[i]) == 2)
@@ -174,7 +167,7 @@ void		get_args_call_function(int ac, char **av)
       option = 0;
       list = list->next;
     }
-  printf("%.2f\t%.2f\t%.2f\n%.2f\t%.2f\t%.2f\n0.00\t0.00\t1.00\n", matrix.tab[0][0], matrix.tab[0][1], matrix.tab[0][2], matrix.tab[1][0], matrix.tab[1][1], matrix.tab[1][2]);
+  printf("%.2f\t%.2f\t%.2f\n%.2f\t%.2f\t%.2f\n%.2f\t%2.2f\t%.2f\n", matrix.tab[0][0], matrix.tab[0][1], matrix.tab[0][2], matrix.tab[1][0], matrix.tab[1][1], matrix.tab[1][2], matrix.tab[2][0], matrix.tab[2][1], matrix.tab[2][2]);
   printf("(%.3g,%.3g) => (%.2f,%.2f)\n", atof(av[1]), atof(av[2]), matrix.x, matrix.y);
 }
 
