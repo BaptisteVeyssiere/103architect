@@ -5,7 +5,7 @@
 ** Login   <scutar_n@epitech.net>
 **
 ** Started on  Mon Nov 30 14:12:19 2015 nathan scutari
-** Last update Thu Dec 10 14:34:54 2015 nathan scutari
+** Last update Thu Dec 10 14:37:45 2015 nathan scutari
 */
 
 #include <stdio.h>
@@ -134,15 +134,8 @@ void		get_args_call_function(int ac, char **av)
     put_error("Error : invalid number of arguments\n", 84);
   verify_number(av[1]);
   verify_number(av[2]);
-  /*matrix.x = atof(av[1]);
+  matrix.x = atof(av[1]);
   matrix.y = atof(av[2]);
-  matrix.tab[0][0] = 1;
-  matrix.tab[0][1] = 1;
-  matrix.tab[0][2] = 1;
-  matrix.tab[1][0] = 1;
-  matrix.tab[1][1] = 1;
-  matrix.tab[1][2] = 1;
-  matrix.tab*/
   while (i < ac)
     {
       if (my_strlen(av[i]) == 2)
@@ -174,8 +167,8 @@ void		get_args_call_function(int ac, char **av)
       option = 0;
       list = list->next;
     }
-  printf("%.3f\t%.3f\t%.3f\n%.3f\t%.3f\t%.3f\n0.000\t0.000\t1.000\n", matrix.tab[0][0], matrix.tab[0][1], matrix.tab[0][2], matrix.tab[1][0], matrix.tab[1][1], matrix.tab[1][2]);
-  printf("(%.3g,%.3g) => (%.3g,%.3g)\n", atof(av[1]), atof(av[2]), matrix.x, matrix.y);
+  printf("%.2f\t%.2f\t%.2f\n%.2f\t%.2f\t%.2f\n%.2f\t%2.2f\t%.2f\n", matrix.tab[0][0], matrix.tab[0][1], matrix.tab[0][2], matrix.tab[1][0], matrix.tab[1][1], matrix.tab[1][2], matrix.tab[2][0], matrix.tab[2][1], matrix.tab[2][2]);
+  printf("(%.3g,%.3g) => (%.2f,%.2f)\n", atof(av[1]), atof(av[2]), matrix.x, matrix.y);
 }
 
 int	main(int ac, char **av)
