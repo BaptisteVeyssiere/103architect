@@ -5,7 +5,7 @@
 ** Login   <scutar_n@epitech.net>
 **
 ** Started on  Mon Nov 30 14:12:19 2015 nathan scutari
-** Last update Thu Dec  3 16:18:35 2015 nathan scutari
+** Last update Thu Dec 10 14:34:54 2015 nathan scutari
 */
 
 #include <stdio.h>
@@ -73,11 +73,11 @@ void	nbrcpy(char *st)
   if (st[i] == '-')
     i++;
   if (st[i] == 0)
-    put_error("Error : option is not a number\n", -1);
+    put_error("Error : option is not a number\n", 84);
   while (st[i] != 0)
     {
       if (st[i] < '0' || st[i] > '9')
-	put_error("Error : option is not a number\n", -1);
+	put_error("Error : option is not a number\n", 84);
       i++;
     }
 }
@@ -131,7 +131,7 @@ void		get_args_call_function(int ac, char **av)
   i = 3;
   list = NULL;
   if (ac < 5)
-    put_error("Error : invalid number of arguments\n", -1);
+    put_error("Error : invalid number of arguments\n", 84);
   verify_number(av[1]);
   verify_number(av[2]);
   /*matrix.x = atof(av[1]);
@@ -158,10 +158,10 @@ void		get_args_call_function(int ac, char **av)
 	      i += 2;
 	    }
 	  else
-	    put_error("Error : bad options\n", -1);
+	    put_error("Error : bad options\n", 84);
 	}
       else
-	put_error("Error : bad options\n", -1);
+	put_error("Error : bad options\n", 84);
     }
   reverse_list(&list);
   option = 1;
@@ -181,4 +181,5 @@ void		get_args_call_function(int ac, char **av)
 int	main(int ac, char **av)
 {
   get_args_call_function(ac, av);
+  return (0);
 }
